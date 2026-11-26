@@ -30,7 +30,7 @@ header.top{position:sticky;top:0;z-index:20;background:rgba(250,247,241,.92);bac
 .top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:74px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
 .mono{width:38px;height:38px;border:1.4px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:19px;line-height:1}
-.brand .mono{font-size:19px;letter-spacing:0;text-transform:none;color:var(--ink);margin:0;font-family:var(--serif);font-weight:500}
+.brand .mono{display:grid;place-items:center;width:38px;height:38px;font-size:19px;line-height:1;letter-spacing:0;text-transform:none;color:var(--ink);margin:0;padding:0;font-family:var(--serif);font-weight:500}
 .brand b{display:block;font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:.14em;line-height:1}
 .brand span{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:5px}
 .back{font-size:13px;text-decoration:none;border:1px solid var(--line2);border-radius:100px;padding:9px 16px;color:var(--text);white-space:nowrap;transition:.2s}
@@ -49,8 +49,10 @@ details.toc>summary::after{content:"▾";font-size:12px;color:var(--brass)}
 details.toc[open]>summary::after{content:"▴"}
 .toc-in a{display:block;color:var(--text);text-decoration:none;padding:4px 0;line-height:1.4}
 .toc-in a:hover{color:var(--brass)}
+
 article{max-width:78ch;counter-reset:none}
-article h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.25;letter-spacing:-.005em;margin:44px 0 14px;padding-top:22px;border-top:1px solid var(--line);scroll-margin-top:96px}
+article h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.25;letter-spacing:-.005em;
+  margin:44px 0 14px;padding-top:22px;border-top:1px solid var(--line);scroll-margin-top:96px}
 article h2:first-child{margin-top:0;padding-top:0;border-top:0}
 article p{margin:0 0 14px}
 article p.def{margin:0 0 10px;padding-left:14px;border-left:2px solid var(--paper2)}
@@ -73,9 +75,13 @@ footer.bot{border-top:1px solid var(--line);background:var(--paper2);padding:34p
   details.toc[open]>summary{margin-bottom:10px}
   .toc-in{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
   .top-in{height:64px}
-  .brand b{font-size:16px}.brand span{font-size:8.5px}
-  .mono{width:32px;height:32px;font-size:16px}
+  .brand b{font-size:16px}.brand .brand-sub{font-size:8.5px}
+  .brand .mono{width:32px;height:32px;font-size:16px}
   .back{padding:8px 12px;font-size:12px}
+}
+@media(max-width:640px){
+  .brand .brand-sub{display:none}
+  .top-in{gap:10px}
 }
 @media print{
   header.top,details.toc,footer.bot{display:none}
@@ -90,11 +96,12 @@ footer.bot{border-top:1px solid var(--line);background:var(--paper2);padding:34p
   <div class="wrap top-in">
     <a class="brand" href="index.html">
       <span class="mono" aria-hidden="true">P</span>
-      <span><b>PRAWOSFERA</b><span>Kancelaria Adwokacka · Kielce</span></span>
+      <span><b>PRAWOSFERA</b><span class="brand-sub">Kancelaria Adwokacka · Kielce</span></span>
     </a>
     <a class="back" href="index.html">← Wróć na stronę</a>
   </div>
 </header>
+
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow">Dokumenty</div>
@@ -102,15 +109,30 @@ footer.bot{border-top:1px solid var(--line);background:var(--paper2);padding:34p
     <p>Zasady przetwarzania danych osobowych i wykorzystywania plików cookies w serwisie <a href="https://www.prawosfera.com/">prawosfera.com</a>.<br><span class="meta">Opublikowano: 01.03.2024</span></p>
   </div>
 </section>
+
 <div class="wrap layout">
   <details class="toc" id="toc">
     <summary>Spis treści</summary>
-    <div class="toc-in">
-      <a href="#s1">§1 Definicje</a><a href="#s2">§2 Inspektor Ochrony Danych</a><a href="#s3">§3 Rodzaje Plików Cookies</a><a href="#s4">§4 Bezpieczeństwo składowania danych</a><a href="#s5">§5 Cele do których wykorzystywane są pliki Cookie</a><a href="#s6">§6 Cele przetwarzania danych osobowych</a><a href="#s7">§7 Pliki Cookies Serwisów zewnętrznych</a><a href="#s8">§8 Rodzaje gromadzonych danych</a><a href="#s9">§9 Dostęp do danych osobowych przez podmioty trzecie</a><a href="#s10">§10 Sposób przetwarzania danych osobowych</a><a href="#s11">§11 Podstawy prawne przetwarzania danych osobowych</a><a href="#s12">§12 Okres przetwarzania danych osobowych</a><a href="#s13">§13 Prawa Użytkowników związane z przetwarzaniem danych osobowych</a><a href="#s14">§14 Kontakt do Administratora</a><a href="#s15">§15 Wymagania Serwisu</a><a href="#s16">§16 Linki zewnętrzne</a><a href="#s17">§17 Zmiany w Polityce Prywatności</a>
-    </div>
+    <div class="toc-in"><a href="#s1">§1 Definicje</a>
+    <a href="#s2">§2 Inspektor Ochrony Danych</a>
+    <a href="#s3">§3 Rodzaje Plików Cookies</a>
+    <a href="#s4">§4 Bezpieczeństwo składowania danych</a>
+    <a href="#s5">§5 Cele do których wykorzystywane są pliki Cookie</a>
+    <a href="#s6">§6 Cele przetwarzania danych osobowych</a>
+    <a href="#s7">§7 Pliki Cookies Serwisów zewnętrznych</a>
+    <a href="#s8">§8 Rodzaje gromadzonych danych</a>
+    <a href="#s9">§9 Dostęp do danych osobowych przez podmioty trzecie</a>
+    <a href="#s10">§10 Sposób przetwarzania danych osobowych</a>
+    <a href="#s11">§11 Podstawy prawne przetwarzania danych osobowych</a>
+    <a href="#s12">§12 Okres przetwarzania danych osobowych</a>
+    <a href="#s13">§13 Prawa Użytkowników związane z przetwarzaniem danych osobowych</a>
+    <a href="#s14">§14 Kontakt do Administratora</a>
+    <a href="#s15">§15 Wymagania Serwisu</a>
+    <a href="#s16">§16 Linki zewnętrzne</a>
+    <a href="#s17">§17 Zmiany w Polityce Prywatności</a></div>
   </details>
   <article>
-    <p>Poniższa Polityka Prywatności określa zasady zapisywania i uzyskiwania dostępu do danych na Urządzeniach Użytkowników korzystających z Serwisu do celów świadczenia usług drogą elektroniczną przez Administratora oraz zasady gromadzenia i przetwarzania danych osobowych Użytkowników, które zostały podane przez nich osobiście i dobrowolnie za pośrednictwem narzędzi dostępnych w Serwisie.</p>
+    <p>Poniższa Polityka Prywatności określa zasady zapisywania i uzyskiwania dostępu do danych na Urządzeniach Użytkowników korzystających z Serwisu do celów świadczenia usług drogą elektroniczną przez Administratora oraz zasady gromadzenia i przetwarzania danych osobowych Użytkowników, które zostały podane przez nich osobiście i dobrowolnie za pośrednictwem narzędzi dostępnych w Serwisie.<br/></p>
     <h2 id="s1">§1 Definicje</h2>
     <p class="def"><strong>Serwis</strong> — serwis internetowy <a href="http://www.prawosfera.com" rel="noopener" target="_blank">www.prawosfera.com</a> działający pod adresem <a href="https://www.prawosfera.com/" rel="noopener" target="_blank">https://www.prawosfera.com/</a></p>
     <p class="def"><strong>Serwis zewnętrzny</strong> — serwisy internetowe partnerów, usługodawców lub usługobiorców współpracujących z Administratorem</p>
@@ -161,13 +183,18 @@ footer.bot{border-top:1px solid var(--line);background:var(--paper2);padding:34p
     <ul><li>Prowadzenie statystyk</li><li>Remarketing (retargeting)</li><li>Serwowanie reklam dostosowanych do preferencji Użytkowników</li><li>Obsługi programów afiliacyjnych</li><li>Zapewnienia prawnie uzasadnionego interesu Administratora</li></ul>
     <h2 id="s7">§7 Pliki Cookies Serwisów zewnętrznych</h2>
     <p>Administrator w Serwisie wykorzystuje skrypty javascript i komponenty webowe partnerów, którzy mogą umieszczać własne pliki cookies na Urządzeniu Użytkownika. Pamiętaj, że w ustawieniach swojej przeglądarki możesz sam decydować o dozwolonych plikach cookies jakie mogą być używane przez poszczególne witryny internetowe. Poniżej znajduje się lista partnerów lub ich usług zaimplementowanych w Serwisie, mogących umieszczać pliki cookies:</p>
-    <p>Usługi multimedialne:</p><ul><li><a href="https://www.youtube.com/t/terms" rel="noopener" target="_blank">YouTube</a></li></ul>
-    <p>Usługi społecznościowe / łączone:<br> (Rejestracja, Logowanie, udostępnianie treści, komunikacja, itp.)</p>
+    <p>Usługi multimedialne:</p>
+    <ul><li><a href="https://www.youtube.com/t/terms" rel="noopener" target="_blank">YouTube</a></li></ul>
+    <p>Usługi społecznościowe / łączone:<br/> (Rejestracja, Logowanie, udostępnianie treści, komunikacja, itp.)</p>
     <ul><li><a href="https://twitter.com/en/tos?wcmmode=disabled%23intlTerms" rel="noopener" target="_blank">Twitter</a></li><li><a href="https://www.microsoft.com/en/servicesagreement/" rel="noopener" target="_blank">Microsoft</a></li><li><a href="https://www.facebook.com/legal/terms" rel="noopener" target="_blank">Facebook</a></li><li><a href="https://policies.google.com/privacy?hl=pl" rel="noopener" target="_blank">Google+</a></li><li><a href="https://www.linkedin.com/legal/user-agreement" rel="noopener" target="_blank">LinkedIn</a></li></ul>
-    <p>Usługi udostępniania treści:</p><ul><li><a href="https://www.whatsapp.com/privacy/?lang=pl" rel="noopener" target="_blank">WhatsApp</a></li><li><a href="https://help.instagram.com/519522125107875" rel="noopener" target="_blank">Instagram</a></li></ul>
-    <p>Usługi Newslettera:</p><ul><li><a href="https://mailchimp.com/legal/privacy/" rel="noopener" target="_blank">MailChimp</a></li></ul>
-    <p>Usługi serwowania reklam oraz sieci afiliacyjne:</p><ul><li><a href="https://policies.google.com/privacy?hl=pl" rel="noopener" target="_blank">Google Adsense</a></li></ul>
-    <p>Prowadzenie statystyk:</p><ul><li><a href="https://policies.google.com/privacy?hl=pl" rel="noopener" target="_blank">Google Analytics</a></li></ul>
+    <p>Usługi udostępniania treści:</p>
+    <ul><li><a href="https://www.whatsapp.com/privacy/?lang=pl" rel="noopener" target="_blank">WhatsApp</a></li><li><a href="https://help.instagram.com/519522125107875" rel="noopener" target="_blank">Instagram</a></li></ul>
+    <p>Usługi Newslettera:</p>
+    <ul><li><a href="https://mailchimp.com/legal/privacy/" rel="noopener" target="_blank">MailChimp</a></li></ul>
+    <p>Usługi serwowania reklam oraz sieci afiliacyjne:</p>
+    <ul><li><a href="https://policies.google.com/privacy?hl=pl" rel="noopener" target="_blank">Google Adsense</a></li></ul>
+    <p>Prowadzenie statystyk:</p>
+    <ul><li><a href="https://policies.google.com/privacy?hl=pl" rel="noopener" target="_blank">Google Analytics</a></li></ul>
     <p>Usługi świadczone przez podmioty trzecie są poza kontrolą Administratora. Podmioty te mogą w każdej chwili zmienić swoje warunki świadczenia usług, polityki prywatności, cel przetwarzania danych oraz sposobów wykorzystywania plików cookie.</p>
     <h2 id="s8">§8 Rodzaje gromadzonych danych</h2>
     <p>Serwis gromadzi dane o Użytkownikach. Cześć danych jest gromadzona automatycznie i anonimowo, a część danych to dane osobowe podane dobrowolnie przez Użytkowników w trakcie zapisywania się do poszczególnych usług oferowanych przez Serwis.</p>
@@ -203,9 +230,9 @@ footer.bot{border-top:1px solid var(--line);background:var(--paper2);padding:34p
     <h2 id="s11">§11 Podstawy prawne przetwarzania danych osobowych</h2>
     <p>Serwis gromadzi i przetwarza dane Użytkowników na podstawie:</p>
     <p>Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych)</p>
-    <p>art. 6 ust. 1 lit. a<br> osoba, której dane dotyczą wyraziła zgodę na przetwarzanie swoich danych osobowych w jednym lub większej liczbie określonych celów</p>
-    <p>art. 6 ust. 1 lit. b<br> przetwarzanie jest niezbędne do wykonania umowy, której stroną jest osoba, której dane dotyczą, lub do podjęcia działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy</p>
-    <p>art. 6 ust. 1 lit. f<br> przetwarzanie jest niezbędne do celów wynikających z prawnie uzasadnionych interesów realizowanych przez administratora lub przez stronę trzecią</p>
+    <p>art. 6 ust. 1 lit. a<br/> osoba, której dane dotyczą wyraziła zgodę na przetwarzanie swoich danych osobowych w jednym lub większej liczbie określonych celów</p>
+    <p>art. 6 ust. 1 lit. b<br/> przetwarzanie jest niezbędne do wykonania umowy, której stroną jest osoba, której dane dotyczą, lub do podjęcia działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy</p>
+    <p>art. 6 ust. 1 lit. f<br/> przetwarzanie jest niezbędne do celów wynikających z prawnie uzasadnionych interesów realizowanych przez administratora lub przez stronę trzecią</p>
     <ul><li>Ustawa z dnia 10 maja 2018 r. o ochronie danych osobowych (Dz.U. 2018 poz. 1000)</li><li>Ustawa z dnia 16 lipca 2004 r. Prawo telekomunikacyjne (Dz.U. 2004 nr 171 poz. 1800)</li></ul>
     <p>Ustawa z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych (Dz. U. 1994 Nr 24 poz. 83)</p>
     <h2 id="s12">§12 Okres przetwarzania danych osobowych</h2>
@@ -217,17 +244,17 @@ footer.bot{border-top:1px solid var(--line);background:var(--paper2);padding:34p
     <p>Anonimowe dane statystyczne, niestanowiące danych osobowych, są przechowywane przez Administratora w celu prowadzenia statystyk serwisu przez czas nieoznaczony.</p>
     <h2 id="s13">§13 Prawa Użytkowników związane z przetwarzaniem danych osobowych</h2>
     <p>Serwis gromadzi i przetwarza dane Użytkowników na podstawie:</p>
-    <p>Prawo dostępu do danych osobowych<br> Użytkownikom przysługuje prawo uzyskania dostępu do swoich danych osobowych, realizowane na żądanie złożone do Administratora</p>
-    <p>Prawo do sprostowania danych osobowych<br> Użytkownikom przysługuje prawo żądania od Administratora niezwłocznego sprostowania danych osobowych, które są nieprawidłowe lub / oraz uzupełnienia niekompletnych danych osobowych, realizowane na żądanie złożone do Administratora</p>
-    <p>Prawo do usunięcia danych osobowych<br> Użytkownikom przysługuje prawo żądania od Administratora niezwłocznego usunięcia danych osobowych, realizowane na żądanie złożone do Administratora W przypadku kont użytkowników, usunięcie danych polega na anonimizacji danych umożliwiających identyfikację Użytkownika. Administrator zastrzega sobie prawo wstrzymania realizacji żądania usunięcia danych w celu ochrony prawnie uzasadnionego interesu Administratora (np. w gdy Użytkownik dopuścił się naruszenia zasad bądź czy dane zostały pozyskane wskutek prowadzonej korespondencji).<br> W przypadku usługi Newsletter, Użytkownik ma możliwość samodzielnego usunięcia swoich danych osobowych korzystając z odnośnika umieszczonego w każdej przesyłanej wiadomości e-mail.</p>
-    <p>Prawo do ograniczenia przetwarzania danych osobowych<br> Użytkownikom przysługuje prawo ograniczenia przetwarzania danych osobowych w przypadkach wskazanych w art. 18 RODO, m.in. kwestionowania prawidłowość danych osobowych, realizowane na żądanie złożone do Administratora</p>
-    <p>Prawo do przenoszenia danych osobowych<br> Użytkownikom przysługuje prawo uzyskania od Administratora, danych osobowych dotyczących Użytkownika w ustrukturyzowanym, powszechnie używanym formacie nadającym się do odczytu maszynowego, realizowane na żądanie złożone do Administratora</p>
-    <p>Prawo wniesienia sprzeciwu wobec przetwarzania danych osobowych<br> Użytkownikom przysługuje prawo wniesienia sprzeciwu wobec przetwarzania jego danych osobowych w przypadkach określonych w art. 21 RODO, realizowane na żądanie złożone do Administratora</p>
-    <p>Prawo wniesienia skargi<br> Użytkownikom przysługuje prawo wniesienia skargi do organu nadzorczego zajmującego się ochroną danych osobowych.</p>
+    <p>Prawo dostępu do danych osobowych<br/> Użytkownikom przysługuje prawo uzyskania dostępu do swoich danych osobowych, realizowane na żądanie złożone do Administratora</p>
+    <p>Prawo do sprostowania danych osobowych<br/> Użytkownikom przysługuje prawo żądania od Administratora niezwłocznego sprostowania danych osobowych, które są nieprawidłowe lub / oraz uzupełnienia niekompletnych danych osobowych, realizowane na żądanie złożone do Administratora</p>
+    <p>Prawo do usunięcia danych osobowych<br/> Użytkownikom przysługuje prawo żądania od Administratora niezwłocznego usunięcia danych osobowych, realizowane na żądanie złożone do Administratora W przypadku kont użytkowników, usunięcie danych polega na anonimizacji danych umożliwiających identyfikację Użytkownika. Administrator zastrzega sobie prawo wstrzymania realizacji żądania usunięcia danych w celu ochrony prawnie uzasadnionego interesu Administratora (np. w gdy Użytkownik dopuścił się naruszenia zasad bądź czy dane zostały pozyskane wskutek prowadzonej korespondencji).<br/> W przypadku usługi Newsletter, Użytkownik ma możliwość samodzielnego usunięcia swoich danych osobowych korzystając z odnośnika umieszczonego w każdej przesyłanej wiadomości e-mail.</p>
+    <p>Prawo do ograniczenia przetwarzania danych osobowych<br/> Użytkownikom przysługuje prawo ograniczenia przetwarzania danych osobowych w przypadkach wskazanych w art. 18 RODO, m.in. kwestionowania prawidłowość danych osobowych, realizowane na żądanie złożone do Administratora</p>
+    <p>Prawo do przenoszenia danych osobowych<br/> Użytkownikom przysługuje prawo uzyskania od Administratora, danych osobowych dotyczących Użytkownika w ustrukturyzowanym, powszechnie używanym formacie nadającym się do odczytu maszynowego, realizowane na żądanie złożone do Administratora</p>
+    <p>Prawo wniesienia sprzeciwu wobec przetwarzania danych osobowych<br/> Użytkownikom przysługuje prawo wniesienia sprzeciwu wobec przetwarzania jego danych osobowych w przypadkach określonych w art. 21 RODO, realizowane na żądanie złożone do Administratora</p>
+    <p>Prawo wniesienia skargi<br/> Użytkownikom przysługuje prawo wniesienia skargi do organu nadzorczego zajmującego się ochroną danych osobowych.</p>
     <h2 id="s14">§14 Kontakt do Administratora</h2>
     <ul><li>Z Administratorem można skontaktować się w jeden z poniższych sposobów</li></ul>
     <p class="def"><strong>Adres pocztowy</strong> — Kancelaria Adwokacka Adwokat Karolina Surma ul. Klonowa 50/2 25-553 Kielce</p>
-    <p class="def"><strong>Adres poczty elektronicznej</strong> — <a href="mailto:kancelaria@prawosfera.com">kancelaria@prawosfera.com</a></p>
+    <p class="def"><strong>Adres poczty elektronicznej</strong> — <a>kancelaria@prawosfera.com</a></p>
     <p class="def"><strong>Połączenie telefoniczne</strong> — Tel: +48 794 242 445</p>
     <p class="def"><strong>Formularz kontaktowy</strong> — drogą mailową lub formularz dostępny pod adresem dostępnym na stronie internetowej, wyrażając zgodę na przesłanie formularza.</p>
     <h2 id="s15">§15 Wymagania Serwisu</h2>
@@ -242,10 +269,19 @@ footer.bot{border-top:1px solid var(--line);background:var(--paper2);padding:34p
     <p>Wprowadzone zmiany wchodzą w życie z chwilą ich publikacji.</p>
   </article>
 </div>
+
 <footer class="bot">
   <div class="wrap bot-in">
-    <div><b>Kancelaria Adwokacka Adwokat Karolina Surma</b><br>ul. Klonowa 27/3, 25-553 Kielce<br>tel. +48 794 242 445 · kancelaria@prawosfera.com</div>
-    <div class="bot-nav"><a href="index.html">Strona główna</a><a href="politykaprywatnosci.html">Polityka prywatności</a><a href="regulamin.html">Regulamin</a></div>
+    <div>
+      <b>Kancelaria Adwokacka Adwokat Karolina Surma</b><br>
+      ul. Klonowa 27/3, 25-553 Kielce<br>
+      tel. +48 794 242 445 · kancelaria@prawosfera.com
+    </div>
+    <div class="bot-nav">
+      <a href="index.html">Strona główna</a>
+      <a href="politykaprywatnosci.html">Polityka prywatności</a>
+      <a href="regulamin.html">Regulamin</a>
+    </div>
   </div>
 </footer>
 <script>
