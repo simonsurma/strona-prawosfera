@@ -30,7 +30,7 @@ header.top{position:sticky;top:0;z-index:20;background:rgba(250,247,241,.92);bac
 .top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:74px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
 .mono{width:38px;height:38px;border:1.4px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:19px;line-height:1}
-.brand .mono{font-size:19px;letter-spacing:0;text-transform:none;color:var(--ink);margin:0;font-family:var(--serif);font-weight:500}
+.brand .mono{display:grid;place-items:center;width:38px;height:38px;font-size:19px;line-height:1;letter-spacing:0;text-transform:none;color:var(--ink);margin:0;padding:0;font-family:var(--serif);font-weight:500}
 .brand b{display:block;font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:.14em;line-height:1}
 .brand span{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:5px}
 .back{font-size:13px;text-decoration:none;border:1px solid var(--line2);border-radius:100px;padding:9px 16px;color:var(--text);white-space:nowrap;transition:.2s}
@@ -75,9 +75,13 @@ footer.bot{border-top:1px solid var(--line);background:var(--paper2);padding:34p
   details.toc[open]>summary{margin-bottom:10px}
   .toc-in{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
   .top-in{height:64px}
-  .brand b{font-size:16px}.brand span{font-size:8.5px}
-  .mono{width:32px;height:32px;font-size:16px}
+  .brand b{font-size:16px}.brand .brand-sub{font-size:8.5px}
+  .brand .mono{width:32px;height:32px;font-size:16px}
   .back{padding:8px 12px;font-size:12px}
+}
+@media(max-width:640px){
+  .brand .brand-sub{display:none}
+  .top-in{gap:10px}
 }
 @media print{
   header.top,details.toc,footer.bot{display:none}
@@ -92,7 +96,7 @@ footer.bot{border-top:1px solid var(--line);background:var(--paper2);padding:34p
   <div class="wrap top-in">
     <a class="brand" href="index.html">
       <span class="mono" aria-hidden="true">P</span>
-      <span><b>PRAWOSFERA</b><span>Kancelaria Adwokacka · Kielce</span></span>
+      <span><b>PRAWOSFERA</b><span class="brand-sub">Kancelaria Adwokacka · Kielce</span></span>
     </a>
     <a class="back" href="index.html">← Wróć na stronę</a>
   </div>
